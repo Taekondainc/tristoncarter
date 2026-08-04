@@ -115,5 +115,33 @@
 @media (max-width: 800px) {
   .contact__panel {
     grid-template-columns: 1fr;
+    padding: clamp(1.75rem, 6vw, 2.5rem);
+    border-radius: 1.5rem;
+    gap: 2rem;
+  }
+
+  .contact__actions {
+    margin-top: 1.5rem;
+    gap: 0.65rem;
+  }
+
+  .contact__actions .btn {
+    max-width: 100%;
+    word-break: break-word;
+  }
+
+  .contact__socials a {
+    font-size: 0.95rem;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact__title {
+    font-size: clamp(2.4rem, 14vw, 3.4rem);
+  }
+
+  .contact__actions .btn {
+    width: 100%;
   }
 }

@@ -272,8 +272,40 @@ main > section {
   box-sizing: border-box;
   isolation: isolate;
   overflow-x: clip;
-  overflow-y: auto;
+  /* visible Y so parallax can move; toolkit overrides to hidden */
+  overflow-y: visible;
   /* each section owns its fill — do not force paper (kills #1446A0 sections) */
+}
+
+/* Toolkit: keep full content visible; allow section to grow if needed */
+main > section.toolkit {
+  overflow: hidden;
+  justify-content: center;
+  height: auto;
+  min-height: 100svh;
+  max-height: none;
+  padding-block: clamp(2rem, 4.5vw, 3.5rem);
+}
+
+/* Experience / History: pin content to top so marquees aren’t clipped */
+main > section.exhibitions,
+main > section.education {
+  justify-content: flex-start;
+  padding-block: clamp(1.5rem, 3.5vw, 2.75rem);
+  overflow: hidden;
+}
+
+main > section.portfolio {
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+main > section.contact {
+  height: auto;
+  min-height: 100svh;
+  max-height: none;
+  justify-content: center;
+  overflow: hidden;
+  padding-block: clamp(2rem, 5vw, 3.5rem);
 }
 
 main > section:nth-child(1) { z-index: 1; }
@@ -381,5 +413,45 @@ main > section:nth-child(10) { z-index: 10; }
 @media (max-width: 720px) {
   .container {
     width: min(100% - 1.75rem, var(--max));
+  }
+
+  /* Mobile: let sections grow so content isn’t clipped by 100svh */
+  main > section {
+    height: auto;
+    min-height: 100svh;
+    max-height: none;
+    justify-content: flex-start;
+    padding-block: clamp(2rem, 7vw, 3.25rem);
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+
+  main > section.toolkit,
+  main > section.exhibitions,
+  main > section.education,
+  main > section.portfolio {
+    padding-block: clamp(2rem, 6vw, 3rem);
+  }
+
+  .marquee__track {
+    font-size: clamp(2rem, 12vw, 3.2rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    font-size: 0.82rem;
+    padding: 0.65rem 1rem;
+    min-height: 2.65rem;
+  }
+}
+
+/* Short viewports (landscape phones / short laptops) */
+@media (max-height: 760px) {
+  main > section {
+    height: auto;
+    min-height: 100svh;
+    max-height: none;
+    justify-content: flex-start;
   }
 }

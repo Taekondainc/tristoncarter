@@ -8,10 +8,12 @@ import "./Contact.css";
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const socials = [
-  { label: contact.email, href: links.email },
-  { label: contact.emailAlt, href: links.emailAlt },
-  { label: "LinkedIn", href: links.linkedin },
+  { label: "592apts.com", href: links.apts },
   { label: "Taekonda TCA", href: links.agency },
+  { label: "GitHub · Taekondainc", href: links.githubTaekonda },
+  { label: "GitHub · tcarterglsc", href: links.githubGlsc },
+  { label: "GitHub · tristoncarter34", href: links.githubPersonal },
+  { label: "LinkedIn", href: links.linkedin },
 ];
 
 export function Contact() {
@@ -51,6 +53,14 @@ export function Contact() {
               </a>
               <a className="btn btn--line" href={links.phone}>
                 {contact.phone}
+              </a>
+              <a
+                className="btn btn--line"
+                href={links.apts}
+                target="_blank"
+                rel="noreferrer"
+              >
+                592apts.com
               </a>
             </div>
           </div>

@@ -1,10 +1,10 @@
 import { useScroll, useSpring, type UseScrollOptions } from "framer-motion";
 
 const spring = {
-  stiffness: 38,
-  damping: 26,
-  mass: 0.55,
-  restDelta: 0.0005,
+  stiffness: 28,
+  damping: 32,
+  mass: 0.7,
+  restDelta: 0.0001,
 } as const;
 
 /** Scroll progress with spring smoothing — keeps parallax fluid, no WebGL needed. */

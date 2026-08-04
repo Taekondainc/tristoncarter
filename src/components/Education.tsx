@@ -12,8 +12,8 @@ export function Education() {
     target: ref,
     offset: ["start end", "end start"],
   });
-  const marqueeX = useTransform(scrollYProgress, [0, 1], ["0%", "-14%"]);
-  const listY = useTransform(scrollYProgress, [0, 1], [80, -60]);
+  const marqueeX = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
+  const listY = useTransform(scrollYProgress, [0, 1], [24, -24]);
 
   return (
     <section className="section education" id="education" ref={ref}>

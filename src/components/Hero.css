@@ -269,3 +269,19 @@
     font-size: clamp(3.6rem, 16vw, 5.5rem);
   }
 }
+
+@media (max-width: 480px) {
+  .hero__lead {
+    font-size: 1rem;
+  }
+
+  .hero__cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero__btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

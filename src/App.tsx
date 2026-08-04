@@ -10,8 +10,11 @@ import { Projects } from "./components/Projects";
 import { Roles } from "./components/Roles";
 import { ScrollProgress } from "./components/ScrollProgress";
 import { Toolkit } from "./components/Toolkit";
+import { useLenis } from "./hooks/useLenis";
 
 export default function App() {
+  useLenis();
+
   return (
     <>
       <ScrollProgress />
