@@ -33,8 +33,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 12%;
-  filter: grayscale(0.15);
+  object-position: center 18%;
+  filter: none;
 }
 
 .about__burst {

@@ -1,26 +1,59 @@
 :root {
-  /* Original editorial palette */
+  /* Core editorial orange — keep these */
   --tomato: #f06543;
   --tomato-600: #f38468;
+  --sandy: #f09d51;
+  --sandy-600: #f3b174;
+
+  /* Brand blue #1446A0 + supporting shades */
+  --charcoal-blue: #1446a0;
+  --charcoal-blue-100: #0a254f;
+  --charcoal-blue-200: #0d3270;
+  --charcoal-blue-300: #11408c;
+  --charcoal-blue-400: #1446a0;
+  --charcoal-blue-600: #1446a0;
+  --charcoal-blue-700: #3d6fb8;
+  --charcoal-blue-800: #7a9fd0;
+  --charcoal-blue-900: #c5d6eb;
+
+  --signal-yellow: #f8dc27;
+  --signal-yellow-100: #5d5103;
+  --signal-yellow-200: #baa206;
+  --signal-yellow-300: #e6c91a;
+  --signal-yellow-400: #fbeb84;
+  --signal-yellow-500: #f8dc27;
+  --signal-yellow-600: #fbeb84;
+  --signal-yellow-700: #fcf0a8;
+  --signal-yellow-800: #fdf6cc;
+  --signal-yellow-900: #fefbe7;
+
+  --pale-sky: #c7dbe6;
+  --pale-sky-600: #d2e2eb;
+  --pale-sky-700: #dde9f0;
+  --pale-sky-800: #e8f1f5;
+  --pale-sky-900: #f4f8fa;
+  --pale-slate: #b5bec6;
+  --thistle: #bfb1c1;
+
+  /* Neutrals — dark grey / soft black, not pure black */
   --platinum: #e8e9eb;
   --platinum-100: #2c2e32;
   --platinum-600: #eeeef0;
   --platinum-700: #f2f2f4;
   --platinum-800: #f6f7f7;
   --platinum-900: #fbfbfb;
+
   --linen: #e0dfd5;
   --linen-600: #e7e6de;
   --linen-700: #edece6;
+
   --gunmetal: #313638;
-  --gunmetal-100: #0a0b0b;
-  --gunmetal-200: #141617;
-  --gunmetal-300: #1e2122;
+  --gunmetal-100: #141617;
+  --gunmetal-200: #1a1d1f;
+  --gunmetal-300: #24282b;
   --gunmetal-600: #576164;
   --gunmetal-700: #7e8a8f;
-  --sandy: #f09d51;
-  --sandy-600: #f3b174;
 
-  /* Compatibility aliases used across components */
   --ink-black: var(--gunmetal);
   --ink-black-100: var(--gunmetal-100);
   --ink-black-200: var(--gunmetal-200);
@@ -31,17 +64,6 @@
   --ink-black-700: var(--gunmetal-700);
   --ink-black-800: #a8aeb1;
   --ink-black-900: var(--platinum);
-
-  --signal-yellow: var(--sandy);
-  --signal-yellow-100: #34210b;
-  --signal-yellow-200: #684216;
-  --signal-yellow-300: var(--tomato);
-  --signal-yellow-400: #d1842c;
-  --signal-yellow-500: var(--sandy);
-  --signal-yellow-600: var(--sandy-600);
-  --signal-yellow-700: #f6c597;
-  --signal-yellow-800: #f9d9ba;
-  --signal-yellow-900: #fcecdd;
 
   --ash-gray: var(--gunmetal-600);
   --ash-gray-100: var(--gunmetal-100);
@@ -54,6 +76,7 @@
   --ash-gray-800: #c5cacd;
   --ash-gray-900: var(--platinum);
 
+  /* Accents that were remapped — restore orange, use blue as support */
   --soft-pine: var(--tomato);
   --soft-pine-100: var(--gunmetal-100);
   --soft-pine-200: var(--gunmetal-200);
@@ -102,22 +125,10 @@
   --sunlit-clay-600: var(--sandy-600);
   --copperwood: var(--tomato);
   --copperwood-600: var(--tomato-600);
-  --river-blue: var(--gunmetal);
+  --river-blue: var(--charcoal-blue-600);
   --spring-green: var(--tomato);
   --spring-green-200: #7a2a18;
   --spring-green-600: var(--tomato-600);
-  --charcoal-blue: var(--gunmetal);
-  --charcoal-blue-100: var(--gunmetal-100);
-  --charcoal-blue-200: var(--gunmetal-200);
-  --charcoal-blue-300: var(--gunmetal-300);
-  --charcoal-blue-600: var(--gunmetal-600);
-  --thistle: var(--sandy);
-  --pale-sky: var(--platinum);
-  --pale-sky-600: var(--platinum-600);
-  --pale-sky-700: var(--platinum-700);
-  --pale-sky-800: var(--platinum-800);
-  --pale-sky-900: var(--platinum-900);
-  --pale-slate: #c5cacd;
 
   --ink: var(--gunmetal-100);
   --ink-soft: var(--gunmetal);
@@ -129,10 +140,12 @@
   --brand-bright: var(--tomato);
   --accent: var(--tomato);
   --accent-soft: var(--sandy);
+  --accent-blue: var(--charcoal-blue-600);
+  --accent-yellow: var(--signal-yellow);
   --accent-green: var(--tomato);
   --line: rgba(49, 54, 56, 0.12);
-  --shadow: 0 24px 60px rgba(10, 11, 11, 0.1), 0 2px 0 rgba(255, 255, 255, 0.35) inset;
-  --shadow-lg: 0 40px 100px rgba(10, 11, 11, 0.16);
+  --shadow: 0 24px 60px rgba(20, 22, 23, 0.1), 0 2px 0 rgba(255, 255, 255, 0.35) inset;
+  --shadow-lg: 0 40px 100px rgba(20, 22, 23, 0.14);
   --radius: 28px;
   --font-display: "Archivo Black", Impact, sans-serif;
   --font-serif: "Instrument Serif", Georgia, serif;
@@ -169,9 +182,8 @@
 .exhibitions__num,
 .exhibitions__main h3,
 .exhibitions__current,
-.education__mega,
-.education__title,
-.education__time,
+.education__num,
+.education__current,
 .contact__title,
 .contact__eyebrow,
 .contact__socials a,
@@ -198,6 +210,10 @@ html {
   .marquee__track {
     animation: none !important;
   }
+
+  main > section {
+    position: relative;
+  }
 }
 
 body {
@@ -205,7 +221,8 @@ body {
   min-width: 320px;
   background: var(--paper);
   color: var(--ink);
-  overflow-x: hidden;
+  /* clip keeps sticky section stacking working (hidden breaks it) */
+  overflow-x: clip;
 }
 
 ::selection {
@@ -238,8 +255,37 @@ button {
 }
 
 .section {
-  padding: clamp(6rem, 12vw, 9.5rem) 0;
+  padding: clamp(4rem, 8vw, 6.5rem) 0;
 }
+
+/* Full-viewport stack: each section sticks; next one covers it as you scroll */
+main > section {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 100svh;
+  min-height: 100svh;
+  max-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: safe center;
+  box-sizing: border-box;
+  isolation: isolate;
+  overflow-x: clip;
+  overflow-y: auto;
+  /* each section owns its fill — do not force paper (kills #1446A0 sections) */
+}
+
+main > section:nth-child(1) { z-index: 1; }
+main > section:nth-child(2) { z-index: 2; }
+main > section:nth-child(3) { z-index: 3; }
+main > section:nth-child(4) { z-index: 4; }
+main > section:nth-child(5) { z-index: 5; }
+main > section:nth-child(6) { z-index: 6; }
+main > section:nth-child(7) { z-index: 7; }
+main > section:nth-child(8) { z-index: 8; }
+main > section:nth-child(9) { z-index: 9; }
+main > section:nth-child(10) { z-index: 10; }
 
 .eyebrow {
   margin: 0 0 1.15rem;

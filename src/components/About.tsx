@@ -1,23 +1,29 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { links } from "../data/content";
+import { useSmoothScrollProgress } from "../hooks/useSmoothScrollProgress";
+import { AmbientShapes } from "./AmbientShapes";
 import "./About.css";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
 export function About() {
   const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
+  const scrollYProgress = useSmoothScrollProgress({
     target: ref,
     offset: ["start end", "end start"],
   });
-  const burstRotate = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const burstRotate = useTransform(scrollYProgress, [0, 1], [0, 180]);
+  const frameY = useTransform(scrollYProgress, [0, 1], [120, -120]);
+  const copyY = useTransform(scrollYProgress, [0, 1], [70, -70]);
 
   return (
     <section className="about" id="about" ref={ref}>
+      <AmbientShapes preset="soft" target={ref} />
       <div className="container about__layout">
         <motion.div
           className="about__frame"
+          style={{ y: frameY }}
           initial={{ opacity: 0, scale: 0.92 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, amount: 0.35 }}
@@ -32,11 +38,12 @@ export function About() {
             style={{ rotate: burstRotate }}
             aria-hidden="true"
           />
-          <img src="/photos/portrait.jpg" alt="Triston Carter" />
+          <img src="/photos/portrait.png" alt="Triston Carter" />
         </motion.div>
 
         <motion.div
           className="about__copy"
+          style={{ y: copyY }}
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.35 }}

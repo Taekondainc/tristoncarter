@@ -1,5 +1,8 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { links } from "../data/content";
+import { useSmoothScrollProgress } from "../hooks/useSmoothScrollProgress";
+import { AmbientShapes } from "./AmbientShapes";
 import "./Hero.css";
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -7,20 +10,22 @@ const title = ["Systems", "& Craft"];
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
+  const scrollYProgress = useSmoothScrollProgress({
     target: ref,
     offset: ["start start", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 160]);
-  const opacity = useTransform(scrollYProgress, [0, 0.65], [1, 0]);
-  const panelRotate = useTransform(scrollYProgress, [0, 1], [0, -12]);
-  const panelY = useTransform(scrollYProgress, [0, 1], [0, 100]);
-  const panelScale = useTransform(scrollYProgress, [0, 1], [1, 0.92]);
-  const hintOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
-  const hintY = useTransform(scrollYProgress, [0, 0.25], [0, 24]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 280]);
+  const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
+  const panelRotate = useTransform(scrollYProgress, [0, 1], [0, -22]);
+  const panelY = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const panelScale = useTransform(scrollYProgress, [0, 1], [1, 0.84]);
+  const hintOpacity = useTransform(scrollYProgress, [0, 0.18], [1, 0]);
+  const hintY = useTransform(scrollYProgress, [0, 0.22], [0, 48]);
 
   return (
     <section className="hero" id="top" aria-label="Introduction" ref={ref}>
+      <AmbientShapes preset="hero" target={ref} />
+
       <motion.div className="container hero__grid" style={{ y, opacity }}>
         <div className="hero__copy">
           <motion.p
@@ -63,7 +68,12 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.55, ease }}
           >
-            <a className="hero__btn" href="#now">
+            <a
+              className="hero__btn"
+              href={links.apts}
+              target="_blank"
+              rel="noreferrer"
+            >
               See 592APTS
             </a>
             <motion.a
@@ -81,10 +91,22 @@ export function Hero() {
         <motion.div
           className="hero__visual"
           style={{ y: panelY, rotate: panelRotate, scale: panelScale }}
-          initial={{ opacity: 0, x: 80, rotate: 8 }}
-          animate={{ opacity: 1, x: 0, rotate: 0 }}
+          initial={{ opacity: 0, x: 80 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.15, delay: 0.18, ease }}
         >
+          <motion.span
+            className="hero__float hero__float--b"
+            aria-hidden="true"
+            animate={{ y: [0, 14, 0], x: [0, -8, 0], rotate: [0, -22, 0] }}
+            transition={{
+              duration: 2.7,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.4,
+            }}
+          />
+
           <div className="hero__panel">
             <img
               className="hero__mark"
@@ -98,12 +120,6 @@ export function Hero() {
               Design
               <br />
               Circuits
-              <br />
-              Classrooms
-              <br />
-              Branding
-              <br />
-              SVG
               <br />
               The Future
             </p>

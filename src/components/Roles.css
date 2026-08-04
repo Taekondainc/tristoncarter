@@ -1,12 +1,15 @@
 .roles {
+  position: relative;
   overflow: hidden;
   padding: clamp(5rem, 10vw, 8rem) 0;
   background:
-    radial-gradient(ellipse 50% 60% at 100% 0%, rgba(240, 157, 81, 0.12), transparent 55%),
+    radial-gradient(ellipse 50% 60% at 100% 0%, rgba(240, 157, 81, 0.14), transparent 55%),
     var(--linen-600);
 }
 
 .roles__inner {
+  position: relative;
+  z-index: 1;
   display: grid;
   gap: clamp(2rem, 5vw, 3.25rem);
 }
@@ -55,7 +58,7 @@
 }
 
 .role--ink {
-  background: var(--gunmetal-100);
+  background: var(--charcoal-blue);
   color: var(--platinum);
 }
 
@@ -68,7 +71,7 @@
 
 .role--tomato {
   background:
-    radial-gradient(circle at 10% 90%, rgba(240, 157, 81, 0.2), transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(240, 157, 81, 0.18), transparent 45%),
     var(--tomato);
   color: #fff;
 }

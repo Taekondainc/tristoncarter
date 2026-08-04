@@ -7,11 +7,13 @@
   overflow: hidden;
   background:
     radial-gradient(ellipse 50% 42% at 88% 18%, rgba(240, 157, 81, 0.22), transparent 58%),
-    radial-gradient(ellipse 42% 38% at 6% 88%, rgba(240, 101, 67, 0.12), transparent 55%),
+    radial-gradient(ellipse 42% 38% at 6% 88%, rgba(20, 70, 160, 0.16), transparent 55%),
     var(--paper);
 }
 
 .hero__grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   gap: clamp(3rem, 7vw, 5.5rem);
@@ -110,8 +112,42 @@
 }
 
 .hero__visual {
+  position: relative;
   justify-self: end;
   width: min(100%, 440px);
+}
+
+.hero__float {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: 4px;
+}
+
+.hero__float--a {
+  top: -0.75rem;
+  left: -0.75rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  background: var(--charcoal-blue-600);
+}
+
+.hero__float--b {
+  right: -0.65rem;
+  bottom: 14%;
+  width: 0.95rem;
+  height: 0.95rem;
+  background: var(--tomato);
+}
+
+.hero__float--c {
+  top: 12%;
+  right: -0.85rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background: var(--signal-yellow);
+  opacity: 0.9;
 }
 
 .hero__panel {
@@ -217,7 +253,6 @@
   .hero {
     padding-top: 3rem;
     padding-bottom: 5rem;
-    min-height: auto;
   }
 
   .hero__grid {

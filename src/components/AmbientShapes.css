@@ -1,0 +1,84 @@
+.amb {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.amb__layer {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.amb__shape {
+  position: absolute;
+  display: block;
+  will-change: transform, opacity;
+}
+
+.amb__shape--square {
+  border-radius: 3px;
+}
+
+.amb__shape--circle {
+  border-radius: 50%;
+}
+
+.amb__shape--ring {
+  border-radius: 50%;
+  background: transparent !important;
+  border: 2px solid currentColor;
+}
+
+.amb__shape--dash {
+  border-radius: 999px;
+}
+
+.amb__shape--tomato {
+  background: var(--tomato);
+  color: var(--tomato);
+  opacity: 0.8;
+}
+
+.amb__shape--tomato-line {
+  background: transparent;
+  color: rgba(240, 101, 67, 0.55);
+  opacity: 0.9;
+}
+
+.amb__shape--sandy {
+  background: var(--sandy);
+  color: var(--sandy);
+  opacity: 0.85;
+}
+
+.amb__shape--yellow {
+  background: var(--signal-yellow);
+  color: var(--signal-yellow);
+  opacity: 0.75;
+}
+
+.amb__shape--blue {
+  background: var(--charcoal-blue-600);
+  color: var(--charcoal-blue-600);
+  opacity: 0.72;
+}
+
+.amb__shape--blue-soft {
+  background: rgba(20, 70, 160, 0.38);
+  color: rgba(20, 70, 160, 0.48);
+}
+
+.amb__shape--blue-bright {
+  background: var(--charcoal-blue-700);
+  color: var(--charcoal-blue-700);
+  opacity: 0.6;
+}
+
+.amb__shape--ink {
+  background: var(--gunmetal-100);
+  color: var(--gunmetal-100);
+  opacity: 0.5;
+}

@@ -4,12 +4,15 @@ export const links = {
   githubGlsc: "https://github.com/tcarterglsc",
   githubTaekonda: "https://github.com/Taekondainc",
   githubPersonal: "https://github.com/tristoncarter34",
-  email: "mailto:Ctriston34@gmail.com",
+  apts: "https://592apts.com",
+  email: "mailto:taekondainc@gmail.com",
+  emailAlt: "mailto:Ctriston34@gmail.com",
   phone: "tel:+5926161446",
 };
 
 export const contact = {
-  email: "Ctriston34@gmail.com",
+  email: "taekondainc@gmail.com",
+  emailAlt: "Ctriston34@gmail.com",
   phone: "+592 616-1446",
   location: "Lodge, Georgetown, Guyana",
 };
@@ -120,6 +123,8 @@ export const nowBuilding = {
     "I’m currently building 592APTS — a curated stays platform for Guyana and the Caribbean. Homes, cabins, and hideaways you actually want to remember.",
   stack: ["React", "Vite", "Flask"],
   image: "/projects/592apts.jpg",
+  href: links.apts,
+  linkLabel: "Upcoming · 592apts.com",
 };
 
 /** Newest → oldest. Every screenshot project stays listed. */
@@ -249,6 +254,7 @@ export const skills = {
   ],
   Design: ["Illustrator", "Adobe XD", "Photoshop", "SVG illustration"],
   Craft: [
+    "AI",
     "Lab tutoring / pedagogy",
     "Electrical technician (GTI · City & Guilds)",
     "Communication",
@@ -301,6 +307,7 @@ export const toolkit = [
     label: "Tools & Craft",
     items: [
       "Git",
+      "AI",
       "Illustrator",
       "Photoshop",
       "Adobe XD",

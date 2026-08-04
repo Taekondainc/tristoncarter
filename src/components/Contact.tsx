@@ -1,32 +1,37 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { contact, links } from "../data/content";
+import { useSmoothScrollProgress } from "../hooks/useSmoothScrollProgress";
+import { AmbientShapes } from "./AmbientShapes";
 import "./Contact.css";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const socials = [
-  { label: "Email", href: links.email },
+  { label: contact.email, href: links.email },
+  { label: contact.emailAlt, href: links.emailAlt },
   { label: "LinkedIn", href: links.linkedin },
   { label: "Taekonda TCA", href: links.agency },
 ];
 
 export function Contact() {
   const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
+  const scrollYProgress = useSmoothScrollProgress({
     target: ref,
     offset: ["start end", "end start"],
   });
-  const panelRotate = useTransform(scrollYProgress, [0, 1], [3, -2]);
+  const panelRotate = useTransform(scrollYProgress, [0, 1], [8, -7]);
+  const panelY = useTransform(scrollYProgress, [0, 1], [100, -70]);
 
   return (
     <section className="section contact" id="contact" ref={ref}>
+      <AmbientShapes preset="bright" target={ref} />
       <div className="container">
         <motion.div
           className="contact__panel"
-          style={{ rotate: panelRotate }}
-          initial={{ opacity: 0, y: 50, scale: 0.96 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          style={{ rotate: panelRotate, y: panelY }}
+          initial={{ opacity: 0, scale: 0.96 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.9, ease }}
         >
@@ -39,7 +44,10 @@ export function Contact() {
             </p>
             <div className="contact__actions">
               <a className="btn btn--fill" href={links.email}>
-                Email me
+                {contact.email}
+              </a>
+              <a className="btn btn--line" href={links.emailAlt}>
+                {contact.emailAlt}
               </a>
               <a className="btn btn--line" href={links.phone}>
                 {contact.phone}

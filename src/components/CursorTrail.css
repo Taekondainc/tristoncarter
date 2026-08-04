@@ -1,0 +1,45 @@
+.trail {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.trail__dot {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+}
+
+.trail__sq {
+  display: block;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 2px;
+}
+
+.trail__dot--yellow .trail__sq {
+  background: var(--signal-yellow);
+  box-shadow: 0 0 12px rgba(248, 220, 39, 0.35);
+}
+
+.trail__dot--blue .trail__sq {
+  background: var(--charcoal-blue-600);
+  box-shadow: 0 0 10px rgba(45, 106, 159, 0.35);
+}
+
+@media (max-width: 900px) {
+  .trail {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trail {
+    display: none;
+  }
+}

@@ -41,7 +41,7 @@
   text-transform: lowercase;
   text-align: center;
   color: var(--ink-black);
-  transform: translateY(28%);
+  margin-bottom: -0.15em;
 }
 
 .footer__copy {

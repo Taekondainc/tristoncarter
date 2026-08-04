@@ -1,9 +1,15 @@
 .contact {
+  position: relative;
   background:
     radial-gradient(ellipse 45% 55% at 0% 60%, rgba(49, 54, 56, 0.1), transparent 55%),
-    radial-gradient(ellipse 40% 40% at 100% 10%, rgba(240, 157, 81, 0.12), transparent 50%),
+    radial-gradient(ellipse 40% 40% at 100% 10%, rgba(240, 157, 81, 0.14), transparent 50%),
     var(--paper);
   overflow: hidden;
+}
+
+.contact > .container {
+  position: relative;
+  z-index: 1;
 }
 
 .contact__panel {
@@ -16,7 +22,7 @@
   background:
     radial-gradient(circle at 92% 8%, rgba(255, 255, 255, 0.4), transparent 38%),
     radial-gradient(circle at 10% 90%, rgba(12, 12, 12, 0.06), transparent 42%),
-    var(--signal-yellow);
+    var(--sandy);
   box-shadow: var(--shadow-lg);
   color: var(--ink-black-100);
 }

@@ -3,7 +3,7 @@
   overflow: hidden;
   padding: clamp(5rem, 10vw, 8rem) 0;
   background:
-    linear-gradient(135deg, rgba(240, 157, 81, 0.1), transparent 40%),
+    linear-gradient(135deg, rgba(45, 106, 159, 0.12), transparent 40%),
     var(--ash-gray-900);
 }
 
@@ -40,7 +40,7 @@
   font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--signal-yellow-300);
+  color: var(--tomato);
 }
 
 .team__shot {

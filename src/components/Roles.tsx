@@ -1,5 +1,8 @@
-import { motion } from "framer-motion";
+import { motion, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { roles } from "../data/content";
+import { useSmoothScrollProgress } from "../hooks/useSmoothScrollProgress";
+import { AmbientShapes } from "./AmbientShapes";
 import { RoleIcon } from "./RoleIcon";
 import "./Roles.css";
 
@@ -15,30 +18,26 @@ const shorts: Record<string, string> = {
 const variants = ["ink", "sandy", "tomato", "ink"] as const;
 
 export function Roles() {
+  const ref = useRef<HTMLElement>(null);
+  const scrollYProgress = useSmoothScrollProgress({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const introY = useTransform(scrollYProgress, [0, 1], [60, -40]);
+
   return (
-    <section className="roles" id="roles">
+    <section className="roles" id="roles" ref={ref}>
+      <AmbientShapes preset="soft" target={ref} />
       <div className="container roles__inner">
         <motion.div
           className="roles__intro"
-          initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          style={{ y: introY }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 0.7, ease }}
         >
           <p className="eyebrow">What I do</p>
-          <h2 className="roles__title">
-            {"Software. Design. Power. Teaching.".split(" ").map((word, i) => (
-              <motion.span
-                key={`${word}-${i}`}
-                initial={{ opacity: 0, y: "110%", rotate: 4 }}
-                whileInView={{ opacity: 1, y: "0%", rotate: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.75, delay: 0.08 + i * 0.1, ease }}
-              >
-                {word}{" "}
-              </motion.span>
-            ))}
-          </h2>
         </motion.div>
 
         <div className="roles__grid">

@@ -10,8 +10,9 @@ export function Team() {
     target: ref,
     offset: ["start end", "end start"],
   });
-  const titleX = useTransform(scrollYProgress, [0, 1], ["-6%", "6%"]);
-  const shotY = useTransform(scrollYProgress, [0, 1], [48, -48]);
+  const titleX = useTransform(scrollYProgress, [0, 1], ["-16%", "16%"]);
+  const shotY = useTransform(scrollYProgress, [0, 1], [130, -130]);
+  const copyY = useTransform(scrollYProgress, [0, 1], [80, -60]);
 
   return (
     <section className="team" id="team" ref={ref}>
@@ -22,6 +23,7 @@ export function Team() {
       <div className="container team__layout">
         <motion.div
           className="team__copy"
+          style={{ y: copyY }}
           initial={{ opacity: 0, x: -28 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.4 }}
