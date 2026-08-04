@@ -1,0 +1,62 @@
+.nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 40;
+  padding: 1.1rem 0;
+  backdrop-filter: blur(16px);
+  background: rgba(251, 251, 251, 0.78);
+}
+
+.nav__inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav__brand {
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav__logo {
+  height: 2.6rem;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav__links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--gunmetal);
+}
+
+.nav__links a {
+  opacity: 0.72;
+  transition: opacity 0.2s ease;
+}
+
+.nav__links a:hover {
+  opacity: 1;
+}
+
+.nav__person {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--gunmetal);
+}
+
+@media (max-width: 860px) {
+  .nav__links {
+    display: none;
+  }
+
+  .nav__inner {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+  }
+}
