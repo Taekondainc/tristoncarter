@@ -15,13 +15,6 @@ export function About() {
 
   return (
     <section className="about" id="about" ref={ref}>
-      <div className="marquee marquee--ink" aria-hidden="true">
-        <div className="marquee__track">
-          <span>about · about · about · about · about · about · </span>
-          <span>about · about · about · about · about · about · </span>
-        </div>
-      </div>
-
       <div className="container about__layout">
         <motion.div
           className="about__frame"
