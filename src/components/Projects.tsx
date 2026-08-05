@@ -1,14 +1,17 @@
 import { AnimatePresence, motion, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import { projects } from "../data/content";
+import { getLenis } from "../hooks/useLenis";
 import { useSmoothScrollProgress } from "../hooks/useSmoothScrollProgress";
 import { AmbientShapes } from "./AmbientShapes";
 import "./Projects.css";
 
 const ease = [0.16, 1, 0.3, 1] as const;
+const MOBILE_MQ = "(max-width: 960px)";
 
 export function Projects() {
   const sectionRef = useRef<HTMLElement>(null);
+  const previewRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
   const project = projects[active];
 
@@ -19,6 +22,23 @@ export function Projects() {
   const megaY = useTransform(scrollYProgress, [0, 1], [120, -140]);
   const stageY = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
   const listY = useTransform(scrollYProgress, [0, 1], [70, -50]);
+
+  const selectProject = (index: number) => {
+    setActive(index);
+    if (!window.matchMedia(MOBILE_MQ).matches) return;
+
+    const el = previewRef.current;
+    if (!el) return;
+
+    requestAnimationFrame(() => {
+      const lenis = getLenis();
+      if (lenis) {
+        lenis.scrollTo(el, { offset: -20, duration: 1.05 });
+      } else {
+        el.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    });
+  };
 
   return (
     <section className="section portfolio" id="projects" ref={sectionRef}>
@@ -66,7 +86,7 @@ export function Projects() {
                     aria-selected={isActive}
                     onMouseEnter={() => setActive(index)}
                     onFocus={() => setActive(index)}
-                    onClick={() => setActive(index)}
+                    onClick={() => selectProject(index)}
                   >
                     <span className="portfolio__num">
                       {String(index + 1).padStart(2, "0")}
@@ -79,7 +99,11 @@ export function Projects() {
             })}
           </ol>
 
-          <div className="portfolio__stage-col">
+          <div
+            className="portfolio__stage-col"
+            ref={previewRef}
+            id="project-preview"
+          >
             <motion.div className="portfolio__stage" style={{ y: stageY }}>
               <div className="portfolio__stage-chrome" aria-hidden="true">
                 <span />

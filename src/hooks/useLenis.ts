@@ -2,6 +2,12 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
 
+let lenisInstance: Lenis | null = null;
+
+export function getLenis() {
+  return lenisInstance;
+}
+
 /** Document-level smooth scroll so section parallax eases instead of snapping. */
 export function useLenis() {
   useEffect(() => {
@@ -14,6 +20,7 @@ export function useLenis() {
       smoothWheel: true,
       touchMultiplier: 1.4,
     });
+    lenisInstance = lenis;
 
     let frame = 0;
     const raf = (time: number) => {
@@ -25,6 +32,7 @@ export function useLenis() {
     return () => {
       cancelAnimationFrame(frame);
       lenis.destroy();
+      lenisInstance = null;
     };
   }, []);
 }
